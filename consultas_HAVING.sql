@@ -16,3 +16,14 @@ FROM tabla_de_productos
 GROUP BY ENVASE 
 HAVING SUM(PRECIO_DE_LISTA)>=80 
 AND MAX(PRECIO_DE_LISTA)>= 5;
+
+
+-- EJERCICIO 
+-- Clientes que realizaron compras en 2016
+-- ¿Quiénes fueron los clientes que realizaron más de 2000 compras en 2016?
+
+SELECT DNI , COUNT(*)
+FROM facturas
+WHERE YEAR(FECHA_VENTA) = 2016
+GROUP BY DNI
+HAVING COUNT(*) > 2000;
