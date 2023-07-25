@@ -85,3 +85,31 @@ SELECT CIUDAD, BARRIO, sum(LIMITE_DE_CREDITO) AS LIMITE, EDAD FROM tabla_de_clie
 WHERE EDAD >= 20
 GROUP BY BARRIO
 ORDER BY EDAD;
+
+-- EJERCICIO NUMERO DE VENTAS
+-- Aprovechando el ejercicio del video anterior 
+-- ¿Cuántos ítems vendidos cuentan con la mayor cantidad del producto '1101035'?
+
+-- ejercicio anterior
+SELECT CODIGO_DEL_PRODUCTO FROM tabla_de_productos 
+WHERE NOMBRE_DEL_PRODUCTO = "Refrescante" AND TAMANO = "1 Litro" 
+AND SABOR = "Frutilla/Limón"; 
+
+SELECT * FROM items_facturas 
+WHERE CODIGO_DEL_PRODUCTO = "1101035" 
+ORDER BY CANTIDAD DESC;
+
+-- 
+SELECT MAX(CANTIDAD) AS CANTIDAD_MAXIMA 
+FROM items_facturas 
+WHERE CODIGO_DEL_PRODUCTO = "1101035";
+-- la cantidad máxima vendida es de 99
+
+SELECT COUNT(*) FROM items_facturas 
+WHERE CODIGO_DEL_PRODUCTO = "1101035" 
+AND CANTIDAD = 99;
+-- ítems vendida es de 79.
+
+
+
+
