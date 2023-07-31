@@ -1,0 +1,30 @@
+SELECT (34 +346-67)/15*29 AS RESULTADO;
+
+SELECT ceiling(23.12);
+
+SELECT FLOOR(23.12);
+
+SELECT RAND() AS RESULTADO;
+
+SELECT ROUND(254.545,2);
+
+SELECT ROUND(254.545,1);
+
+SELECT NUMERO, CANTIDAD, PRECIO, CANTIDAD* PRECIO AS FACTURACION FROM items_facturas;
+
+SELECT NUMERO, CANTIDAD, PRECIO, ROUND(CANTIDAD* PRECIO, 2) AS FACTURACION FROM items_facturas;
+
+-- FORMATO DE FACTURACION 
+-- En la tabla de facturas tenemos el valor del impuesto. 
+-- En la tabla de ítems tenemos la cantidad y la facturación. 
+-- Calcula el valor del impuesto pago en el año de 2016 redondeando al menor entero.
+
+
+SELECT IMPUESTO FROM facturas;
+SELECT CANTIDAD, ROUND(CANTIDAD* PRECIO) AS FACTURACION FROM items_facturas;
+
+SELECT YEAR(FECHA_VENTA), FLOOR(SUM(IMPUESTO*(CANTIDAD*PRECIO))) AS RESULTADO
+FROM facturas F
+INNER JOIN items_facturas IFa ON F.NUMERO = IFa.NUMERO
+WHERE YEAR(FECHA_VENTA) = 2016
+group by YEAR(FECHA_VENTA);
