@@ -22,3 +22,10 @@ dayname(FECHA_VENTA)AS DIA,
 monthname(FECHA_VENTA) AS MES,
 year(FECHA_VENTA) AS AÑO
 FROM facturas;
+
+
+-- Edad de los clientes 
+-- Haz una consulta que muestre el nombre y la edad actual del cliente
+
+SELECT NOMBRE, TIMESTAMPDIFF(YEAR, FECHA_DE_NACIMIENTO, CURDATE()) AS    EDAD
+FROM  tabla_de_clientes;
