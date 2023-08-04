@@ -17,7 +17,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema ventas_jugos
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `ventas_jugos` DEFAULT CHARACTER SET utf32 ;
+CREATE SCHEMA IF NOT EXISTS `ventas_jugos` DEFAULT CHARACTER SET utf8 ;
 USE `ventas_jugos` ;
 
 -- -----------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `ventas_jugos`.`tb_cliente` (
   `PRIMERA_COMPRA` BIT(1) NULL DEFAULT NULL,
   PRIMARY KEY (`DNI`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf32;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `ventas_jugos`.`tb_vendedor` (
   `DE_VACACIONES` BIT(1) NULL DEFAULT NULL,
   PRIMARY KEY (`MATRICULA`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf32;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `ventas_jugos`.`tb_factura` (
     FOREIGN KEY (`MATRICULA`)
     REFERENCES `ventas_jugos`.`tb_vendedor` (`MATRICULA`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf32;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `ventas_jugos`.`tb_producto` (
   `PRECIO_LISTA` FLOAT NULL DEFAULT NULL,
   PRIMARY KEY (`CODIGO`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf32;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `ventas_jugos`.`tb_items_facturas` (
     FOREIGN KEY (`CODIGO`)
     REFERENCES `ventas_jugos`.`tb_producto` (`CODIGO`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf32;
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
